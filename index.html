@@ -76,6 +76,41 @@
       0% { opacity: 0.5; text-shadow: 0 0 10px #ffd700; }
       100% { opacity: 1; text-shadow: 0 0 20px #ffff66; }
     }
+
+    .mensaje-secreto {
+      display: none;
+      position: absolute;
+      top: 70%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff5cc;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 80%;
+      text-align: center;
+      z-index: 4;
+      box-shadow: 0 0 20px #fff5cc;
+    }
+
+    .estrella-secreta {
+      position: absolute;
+      top: 20%;
+      left: 90%;
+      width: 20px;
+      height: 20px;
+      background-color: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #ffd700;
+      z-index: 3;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .estrella-secreta:hover {
+      transform: scale(1.5);
+    }
   </style>
 </head>
 <body>
@@ -90,6 +125,13 @@
 </div>
 
 <div class="mia-constelacion">MIA</div>
+
+<div class="estrella-secreta" onclick="mostrarMensaje()"></div>
+<div class="mensaje-secreto" id="mensaje">
+  Si alguna vez dudas de mi amor,<br>
+  vuelve aquí...<br>
+  Siempre estuve mirando el cielo por ti ✨
+</div>
 
 <script>
   const canvas = document.getElementById('estrellas');
@@ -131,6 +173,10 @@
   }
 
   loop();
+
+  function mostrarMensaje() {
+    document.getElementById('mensaje').style.display = 'block';
+  }
 </script>
 
 </body>
