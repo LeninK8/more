@@ -1,183 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Universo para Mia</title>
+  <meta charset="UTF-8">
+  <title>Imagen decorada</title>
   <style>
     body {
-      margin: 0;
-      overflow: hidden;
-      background: radial-gradient(ellipse at bottom, #0d1b2a 0%, #000 100%);
-      font-family: 'Georgia', serif;
-      color: #ffd700;
-    }
-
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 0;
-    }
-
-    .poema {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      background-color: #121212;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
       text-align: center;
-      z-index: 2;
-      max-width: 90%;
-      animation: fadein 3s ease forwards;
+      padding: 50px;
     }
 
-    .poema span {
-      display: block;
-      opacity: 0;
-      font-size: 22px;
-      animation: flotar 10s infinite ease-in-out, aparecer 1s forwards;
-    }
-
-    .poema span:nth-child(1) { animation-delay: 1s; }
-    .poema span:nth-child(2) { animation-delay: 4s; }
-    .poema span:nth-child(3) { animation-delay: 7s; }
-    .poema span:nth-child(4) { animation-delay: 10s; }
-
-    @keyframes flotar {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-      100% { transform: translateY(0px); }
-    }
-
-    @keyframes aparecer {
-      to { opacity: 1; }
-    }
-
-    @keyframes fadein {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    .mia-constelacion {
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 3;
-      font-size: 36px;
-      font-weight: bold;
-      color: #ffc300;
-      letter-spacing: 15px;
-      text-shadow: 0 0 10px #ffd700;
-      animation: brillar 2s infinite alternate;
-    }
-
-    @keyframes brillar {
-      0% { opacity: 0.5; text-shadow: 0 0 10px #ffd700; }
-      100% { opacity: 1; text-shadow: 0 0 20px #ffff66; }
-    }
-
-    .mensaje-secreto {
-      display: none;
-      position: absolute;
-      top: 70%;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 20px;
-      background: rgba(0, 0, 0, 0.7);
-      color: #fff5cc;
-      padding: 20px;
-      border-radius: 12px;
+    .imagen-decorada {
+      border: 5px solid gold;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
       max-width: 80%;
-      text-align: center;
-      z-index: 4;
-      box-shadow: 0 0 20px #fff5cc;
-    }
-
-    .estrella-secreta {
-      position: absolute;
-      top: 20%;
-      left: 90%;
-      width: 20px;
-      height: 20px;
-      background-color: #fff;
-      border-radius: 50%;
-      box-shadow: 0 0 10px #ffd700;
-      z-index: 3;
-      cursor: pointer;
       transition: transform 0.3s ease;
     }
 
-    .estrella-secreta:hover {
-      transform: scale(1.5);
+    .imagen-decorada:hover {
+      transform: scale(1.05);
+    }
+
+    h1 {
+      color: gold;
+      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
 
-<canvas id="estrellas"></canvas>
-
-<div class="poema">
-  <span>Entre miles de estrellas, solo tú eres mi cielo.</span>
-  <span>Mi amor cruza océanos, busca tu luz en Italia.</span>
-  <span>No importa la distancia, tú sigues siendo mi norte.</span>
-  <span>Porque este universo... solo tiene sentido si te incluye, Mia.</span>
-</div>
-
-<div class="mia-constelacion">MIA</div>
-
-<div class="estrella-secreta" onclick="mostrarMensaje()"></div>
-<div class="mensaje-secreto" id="mensaje">
-  Si alguna vez dudas de mi amor,<br>
-  vuelve aquí...<br>
-  Siempre estuve mirando el cielo por ti ✨
-</div>
-
-<script>
-  const canvas = document.getElementById('estrellas');
-  const ctx = canvas.getContext('2d');
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-
-  let estrellas = [];
-  for (let i = 0; i < 200; i++) {
-    estrellas.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      radius: Math.random() * 1.5,
-      speed: Math.random() * 0.5 + 0.2
-    });
-  }
-
-  function dibujarEstrellas() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#ffffff";
-    estrellas.forEach(e => {
-      ctx.beginPath();
-      ctx.arc(e.x, e.y, e.radius, 0, Math.PI * 2);
-      ctx.fill();
-    });
-  }
-
-  function animarEstrellas() {
-    estrellas.forEach(e => {
-      e.y -= e.speed;
-      if (e.y < 0) e.y = canvas.height;
-    });
-  }
-
-  function loop() {
-    dibujarEstrellas();
-    animarEstrellas();
-    requestAnimationFrame(loop);
-  }
-
-  loop();
-
-  function mostrarMensaje() {
-    document.getElementById('mensaje').style.display = 'block';
-  }
-</script>
+  <h1>✨ Mi Imagen Decorada ✨</h1>
+  <img src="blob:https://web.whatsapp.com/893ced67-69a2-4728-abbf-3d82bd19c17a>
 
 </body>
 </html>
